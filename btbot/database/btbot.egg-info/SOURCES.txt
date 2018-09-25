@@ -1,0 +1,4 @@
+btbot.egg-info/PKG-INFO
+btbot.egg-info/SOURCES.txt
+btbot.egg-info/dependency_links.txt
+btbot.egg-info/top_level.txt

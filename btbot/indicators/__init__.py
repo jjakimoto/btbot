@@ -1,0 +1,1 @@
+from .vol import EMAVolatility
