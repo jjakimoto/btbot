@@ -65,5 +65,16 @@ class Cerebro(bt.Cerebro):
             plotter.show()
         fig.set_size_inches(width, height)
         if path:
-            fig.savefig(path,dpi = dpi)
+            fig.savefig(path, dpi=dpi)
         return figs
+
+
+def get_cerebro(startcash=10000):
+    cerebro = Cerebro()
+    cerebro.broker.setcash(startcash)
+    cerebro.addanalyzer(bt.analyzers.DrawDown, _name='drawdown')
+    cerebro.addanalyzer(bt.analyzers.SharpeRatio_A, _name='sharpe',
+                        timeframe=bt.analyzers.TimeFrame.Days)
+    cerebro.addobserver(bt.observers.DrawDown)
+    cerebro.addanalyzer(bt.analyzers.PyFolio, _name='pyfolio')
+    return cerebro
